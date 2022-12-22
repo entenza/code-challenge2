@@ -2,14 +2,16 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 
-const usersRouter = require("./news.routes");
+const newsRouter = require("./news.routes");
 const { dbConnection } = require('./db')
+require('./cron')
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.use(usersRouter);
+app.use(newsRouter);
+
 
 dbConnection()
   .then(() => {
