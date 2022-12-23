@@ -11,6 +11,15 @@ app.use(express.json());
 app.use(cors());
 
 app.use(newsRouter);
+app.use('/', (req, res, next) => {
+  res.status(200).send('Hello from CodeChallenge Express MongoDB!!! ')
+})
+
+
+
+const swaggerJsdoc = require('swagger-jsdoc')
+const swaggerUI = require('swagger-ui-express')
+
 
 
 dbConnection()
